@@ -1,12 +1,8 @@
-
-
-
 from constants import (
     ALPHABET_SIZE,
     LOWERCASE_LETTERS,
     UPPERCASE_LETTERS,
 )
-
 
 
 class CaesarCipher:
@@ -21,9 +17,7 @@ class CaesarCipher:
 		
 		if alphabet and len(set(alphabet)) != len(alphabet): # checking for duplicate chars in alphabet variable
 			raise ValueError("Alphabet must not contain duplicate chars")
-			
-		
-		
+
 	def shift_chars(self, char: str, shift: int):
 		if char in UPPERCASE_LETTERS:
 			pos = UPPERCASE_LETTERS.index(char) # get position of char in list
@@ -44,7 +38,6 @@ class CaesarCipher:
 		for char in text:
 			encrypted_word += self.shift_chars(char, self.key)
 		return encrypted_word
-
 	
 	def decrypt(self, text: str):
 		"""
@@ -68,13 +61,4 @@ class CaesarCipher:
 			cipher = CaesarCipher(key=i) # creates class instance where key = i
 			decrypted_text = cipher.decrypt(text) # decrypts the text with the key as i
 			results.append((i, decrypted_text)) # double brackets to create a tupple
-
-
-
-
-
-
-
-
-
-
+		return results
